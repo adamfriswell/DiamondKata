@@ -21,6 +21,17 @@
                 }
                 result += "\n";
             }
+            var subsetWithoutInput = alphabet.Take(inputIndex-1).ToList();
+            subsetWithoutInput.Reverse();
+            foreach (var letter in subsetWithoutInput)
+            {
+                var letterIndex = alphabet.IndexOf(letter) + 1;
+                for (int i = 0; i < letterIndex; i++)
+                {
+                    result += letter.ToString();
+                }
+                result += "\n";
+            }
             return result;
         }
     }
