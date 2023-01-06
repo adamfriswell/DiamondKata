@@ -19,6 +19,7 @@
                 {
                     result += letter.ToString();
                 }
+                result += "\n";
             }
             return result;
         }
