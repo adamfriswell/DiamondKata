@@ -9,13 +9,13 @@ namespace DiamondKata.Tests
         }
 
         [Fact]
-        public void B_should_repeat_characters()
+        public void B_should_repeat_characters_with_linebreak()
         {
             Assert.Equal("A\nBB\n", Diamond.Create('B'));
         }
 
         [Fact]
-        public void C_should_repeat_characters()
+        public void C_should_repeat_characters_with_linebreak()
         {
             Assert.Equal("A\nBB\nCCC\n", Diamond.Create('C'));
         }
