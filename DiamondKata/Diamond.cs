@@ -9,12 +9,16 @@
         public static string Create(char input)
         {
             var alphabet = Letters();
-            var alphabetIndex = alphabet.IndexOf(input) + 1;
-            var subsetLetters = alphabet.Take(alphabetIndex).ToList();
+            var inputIndex = alphabet.IndexOf(input) + 1;
+            var subset = alphabet.Take(inputIndex).ToList();
             var result = "";
-            foreach(var l in subsetLetters)
+            foreach(var letter in subset)
             {
-                result += l.ToString();
+                var letterIndex = alphabet.IndexOf(letter) + 1;
+                for (int i = 0; i < letterIndex; i++)
+                {
+                    result += letter.ToString();
+                }
             }
             return result;
         }
