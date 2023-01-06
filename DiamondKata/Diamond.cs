@@ -4,7 +4,7 @@
     {
         public static string Create(char input)
         {
-            return "";
+            return input.ToString();
         }
     }
 }
