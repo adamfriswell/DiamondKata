@@ -13,5 +13,11 @@ namespace DiamondKata.Tests
         {
             Assert.Equal("ABB", Diamond.Create('B'));
         }
+
+        [Fact]
+        public void C_should_repeat_characters()
+        {
+            Assert.Equal("ABBCCC", Diamond.Create('C'));
+        }
     }
 }
