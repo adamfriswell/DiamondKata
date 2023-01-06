@@ -9,9 +9,9 @@ namespace DiamondKata.Tests
         }
 
         [Fact]
-        public void B_should_give_character_sequence()
+        public void B_should_repeat_characters()
         {
-            Assert.Equal("AB", Diamond.Create('B'));
+            Assert.Equal("ABB", Diamond.Create('B'));
         }
     }
 }
