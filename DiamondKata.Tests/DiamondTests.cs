@@ -17,7 +17,7 @@ namespace DiamondKata.Tests
         [Fact]
         public void C_should_should_give_full_diamond_letters()
         {
-            Assert.Equal("A\nBB\nCCC\nBB\nA\n", Diamond.Create('C'));
+            Assert.Equal("A\nBB\nCC\nBB\nA\n", Diamond.Create('C'));
         }
     }
 }
