@@ -21,29 +21,40 @@
         {
             var subsetWithoutInput = alphabet.Take(inputIndex - 1).ToList();
             subsetWithoutInput.Reverse();
-            var bottomOfDiamond = CreateTriangleFromSubset(alphabet, subsetWithoutInput);
+            var bottomOfDiamond = CreateTriangleFromSubset(alphabet, subsetWithoutInput, inputIndex, 0);
             return bottomOfDiamond;
         }
 
         private static string CreateTopOfDiamond(List<char> alphabet, int inputIndex)
         {
             var subset = alphabet.Take(inputIndex).ToList();
-            var topOfDiamond = CreateTriangleFromSubset(alphabet, subset);
+            var topOfDiamond = CreateTriangleFromSubset(alphabet, subset, inputIndex, 1);
             return topOfDiamond;
         }
 
-        private static string CreateTriangleFromSubset(List<char> alphabet, List<char> subset)
+        private static string CreateTriangleFromSubset(List<char> alphabet, List<char> subset, int inputIndex, int offset)
         {
             var result = "";
             foreach (var letter in subset)
             {
                 if (letter == 'A')
                 {
+                    for (int i = 0; i < inputIndex-1; i++)
+                    {
+                        result += "_";
+                    }
                     result += letter.ToString();
                 }
                 else
                 {
+                    var leftPadding = Math.Abs(subset.Count() - offset - alphabet.IndexOf(letter));
+                    for (int i = 0; i < leftPadding; i++)
+                    {
+                        result += "_";
+                    }
+
                     result += letter.ToString();
+
                     var middleGap = (alphabet.IndexOf(letter) * 2) - 1;
                     for (int i = 0; i < middleGap; i++)
                     {
