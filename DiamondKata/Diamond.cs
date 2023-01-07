@@ -39,32 +39,31 @@
             {
                 if (letter == 'A')
                 {
-                    for (int i = 0; i < inputIndex-1; i++)
-                    {
-                        result += "_";
-                    }
-                    result += letter.ToString();
+                    result = WriteLine(result, letter, inputIndex-1);
+
                 }
                 else
                 {
                     var leftPadding = Math.Abs(subset.Count() - offset - alphabet.IndexOf(letter));
-                    for (int i = 0; i < leftPadding; i++)
-                    {
-                        result += "_";
-                    }
-
-                    result += letter.ToString();
+                    result = WriteLine(result, letter, leftPadding);
 
                     var middleGap = (alphabet.IndexOf(letter) * 2) - 1;
-                    for (int i = 0; i < middleGap; i++)
-                    {
-                        result += "_";
-                    }
-                    result += letter.ToString();
+                    result = WriteLine(result, letter, middleGap);
                 }
                 result += "\n";
             }
 
+            return result;
+        }
+
+        private static string WriteLine(string result, char letter, int range)
+        {
+            for (int i = 0; i < range; i++)
+            {
+                result += "_";
+            }
+
+            result += letter.ToString();
             return result;
         }
     }
