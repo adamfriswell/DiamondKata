@@ -60,7 +60,7 @@
         {
             for (int i = 0; i < range; i++)
             {
-                result += "_";
+                result += " ";
             }
 
             result += letter.ToString();
