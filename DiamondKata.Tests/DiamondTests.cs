@@ -9,15 +9,15 @@ namespace DiamondKata.Tests
         }
 
         [Fact]
-        public void B_should_give_full_diamond_with_underscores_for_middle_gap()
+        public void B_should_give_full_diamond()
         {
-            Assert.Equal("_A\nB_B\n_A\n", Diamond.Create('B'));
+            Assert.Equal(" A\nB B\n A\n", Diamond.Create('B'));
         }
 
         [Fact]
-        public void C_should_give_full_diamond_with_underscores_for_middle_gap()
+        public void C_should_give_full_diamond()
         {
-            Assert.Equal("__A\n_B_B\nC___C\n_B_B\n__A\n", Diamond.Create('C'));
+            Assert.Equal("  A\n B B\nC   C\n B B\n  A\n", Diamond.Create('C'));
         }
     }
 }
