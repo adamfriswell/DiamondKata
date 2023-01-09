@@ -50,7 +50,7 @@ namespace DiamondKata.Tests
         }
 
         [Fact]
-        public void Non_input_throws_exeption()
+        public void No_input_throws_exeption()
         {
             Action act = () => Diamond.Create("");
 

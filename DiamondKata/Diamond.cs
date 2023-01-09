@@ -41,7 +41,6 @@
                 if (letter == 'A')
                 {
                     result = WriteLine(result, letter, alphabetIndex-1);
-
                 }
                 else
                 {
