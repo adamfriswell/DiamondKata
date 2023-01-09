@@ -30,7 +30,7 @@
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input");
+                    Console.WriteLine($"Invalid input of '{input}'");
                 }
                 Console.WriteLine("------------");
             }

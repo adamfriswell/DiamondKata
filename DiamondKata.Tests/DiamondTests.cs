@@ -34,19 +34,19 @@ namespace DiamondKata.Tests
             Action act = () => Diamond.Create(letter);
 
             Exception exception = Assert.Throws<Exception>(act);
-            Assert.Equal("Invalid input", exception.Message);
+            Assert.Equal($"Invalid input of '{letter}'", exception.Message);
         }
 
         [Theory]
         [InlineData("Hello")]
         [InlineData("%12345")]
         [InlineData("SPACE")]
-        public void Non_single_char_throws_exception(string letter)
+        public void Non_single_char_throws_exception(string word)
         {
-            Action act = () => Diamond.Create(letter);
+            Action act = () => Diamond.Create(word);
 
             Exception exception = Assert.Throws<Exception>(act);
-            Assert.Equal("Invalid input", exception.Message);
+            Assert.Equal($"Invalid input of '{word}'", exception.Message);
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace DiamondKata.Tests
             Action act = () => Diamond.Create("");
 
             Exception exception = Assert.Throws<Exception>(act);
-            Assert.Equal("Invalid input", exception.Message);
+            Assert.Equal("Invalid input of ''", exception.Message);
         }
     }
 }

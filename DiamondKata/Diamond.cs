@@ -12,13 +12,13 @@
 
             if (input.Length != 1)
             {
-                throw new Exception("Invalid input");
+                throw new Exception($"Invalid input of '{input}'");
             }
 
             var letter = input.ToUpper()[0];
             if (!alphabet.Contains(letter))
             {
-                throw new Exception("Invalid input");
+                throw new Exception($"Invalid input of '{input}'");
             }
 
             var alphabetIndex = alphabet.IndexOf(letter) + 1;
