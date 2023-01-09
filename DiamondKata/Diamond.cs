@@ -10,7 +10,7 @@
         {
             var alphabet = Letters();
 
-            if (input.Length > 1)
+            if (input.Length != 1)
             {
                 throw new Exception("Invalid input");
             }

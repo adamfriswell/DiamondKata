@@ -48,5 +48,14 @@ namespace DiamondKata.Tests
             Exception exception = Assert.Throws<Exception>(act);
             Assert.Equal("Invalid input", exception.Message);
         }
+
+        [Fact]
+        public void Non_input_throws_exeption()
+        {
+            Action act = () => Diamond.Create("");
+
+            Exception exception = Assert.Throws<Exception>(act);
+            Assert.Equal("Invalid input", exception.Message);
+        }
     }
 }
