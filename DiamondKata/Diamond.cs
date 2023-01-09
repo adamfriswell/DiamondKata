@@ -10,6 +10,12 @@
         {
             input = char.ToUpper(input);
             var alphabet = Letters();
+
+            if (!alphabet.Contains(input))
+            {
+                throw new Exception("Invalid input");
+            }
+
             var inputIndex = alphabet.IndexOf(input) + 1;
 
             var subset = alphabet.Take(inputIndex).ToList();

@@ -15,8 +15,15 @@ public class Program
             }
             else
             {
-                var result = Diamond.Create(input);
-                Console.WriteLine(result);
+                try
+                {
+                    var result = Diamond.Create(input);
+                    Console.WriteLine(result);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
                 Console.WriteLine("------------");
             }
         }
