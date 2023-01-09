@@ -44,7 +44,7 @@
                 }
                 else
                 {
-                    var leftPadding = Math.Abs(subset.Count() - offset - alphabet.IndexOf(letter));
+                    var leftPadding = Math.Abs(subset.Count() - alphabet.IndexOf(letter) - offset);
                     result = WriteLine(result, letter, leftPadding);
 
                     var middleGap = (alphabet.IndexOf(letter) * 2) - 1;
