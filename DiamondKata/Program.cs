@@ -1,28 +1,37 @@
-﻿using DiamondKata;
-
-public class Program
+﻿namespace DiamondKata
 {
-    public static void Main(string[] args)
+    public class Program
     {
-        bool exit = false;
-        while (!exit)
+        public static void Main(string[] args)
         {
-            Console.Write("Enter a letter (SPACE to exit): ");
-            var input = Console.ReadLine()[0];
-            if(input == ' ')
+            bool exit = false;
+            while (!exit)
             {
-                exit = true;
-            }
-            else
-            {
-                try
+                Console.Write("Enter a letter (SPACE to exit): ");
+                var response = Console.ReadLine();
+                if (response != null)
                 {
-                    var result = Diamond.Create(input);
-                    Console.WriteLine(result);
+                    var input = response[0];
+                    if (input == ' ')
+                    {
+                        exit = true;
+                    }
+                    else
+                    {
+                        try
+                        {
+                            var result = Diamond.Create(input);
+                            Console.WriteLine(result);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
                 }
-                catch(Exception ex)
+                else
                 {
-                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("Invalid input");
                 }
                 Console.WriteLine("------------");
             }
