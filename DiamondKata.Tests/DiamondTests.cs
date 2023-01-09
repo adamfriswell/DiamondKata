@@ -25,5 +25,16 @@ namespace DiamondKata.Tests
         {
             Assert.Equal("  A\n B B\nC   C\n B B\n  A\n", Diamond.Create(letter));
         }
+
+        [Theory]
+        [InlineData('1')]
+        [InlineData('%')]
+        public void Non_alphabetic_char_throws_exception(char letter)
+        {
+            Action act = () => Diamond.Create(letter);
+
+            Exception exception = Assert.Throws<Exception>(act);
+            Assert.Equal("Invalid input", exception.Message);
+        }
     }
 }
