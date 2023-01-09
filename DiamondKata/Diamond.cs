@@ -11,25 +11,14 @@
             var alphabet = Letters();
             var inputIndex = alphabet.IndexOf(input) + 1;
 
-            string topOfDiamond = CreateTopOfDiamond(alphabet, inputIndex);
-            string bottomOfDiamond = CreateBottomOfDiamond(alphabet, inputIndex);
+            var subset = alphabet.Take(inputIndex).ToList();
+            string topOfDiamond = CreateTriangleFromSubset(alphabet, subset, inputIndex, 1);
 
-            return topOfDiamond + bottomOfDiamond;
-        }
-
-        private static string CreateBottomOfDiamond(List<char> alphabet, int inputIndex)
-        {
             var subsetWithoutInput = alphabet.Take(inputIndex - 1).ToList();
             subsetWithoutInput.Reverse();
-            var bottomOfDiamond = CreateTriangleFromSubset(alphabet, subsetWithoutInput, inputIndex, 0);
-            return bottomOfDiamond;
-        }
+            string bottomOfDiamond = CreateTriangleFromSubset(alphabet, subsetWithoutInput, inputIndex, 0);
 
-        private static string CreateTopOfDiamond(List<char> alphabet, int inputIndex)
-        {
-            var subset = alphabet.Take(inputIndex).ToList();
-            var topOfDiamond = CreateTriangleFromSubset(alphabet, subset, inputIndex, 1);
-            return topOfDiamond;
+            return topOfDiamond + bottomOfDiamond;
         }
 
         private static string CreateTriangleFromSubset(List<char> alphabet, List<char> subset, int inputIndex, int offset)
