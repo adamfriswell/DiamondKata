@@ -2,22 +2,28 @@ namespace DiamondKata.Tests
 {
     public class DiamondTests
     {
-        [Fact]
-        public void A_should_give_singelton_diamond()
+        [Theory]
+        [InlineData('A')]
+        [InlineData('a')]
+        public void A_should_give_singelton_diamond(char letter)
         {
-            Assert.Equal("A\n", Diamond.Create('A'));
+            Assert.Equal("A\n", Diamond.Create(letter));
         }
 
-        [Fact]
-        public void B_should_give_full_diamond()
+        [Theory]
+        [InlineData('B')]
+        [InlineData('b')]
+        public void B_should_give_full_diamond(char letter)
         {
-            Assert.Equal(" A\nB B\n A\n", Diamond.Create('B'));
+            Assert.Equal(" A\nB B\n A\n", Diamond.Create(letter));
         }
 
-        [Fact]
-        public void C_should_give_full_diamond()
+        [Theory]
+        [InlineData('C')]
+        [InlineData('c')]
+        public void C_should_give_full_diamond(char letter)
         {
-            Assert.Equal("  A\n B B\nC   C\n B B\n  A\n", Diamond.Create('C'));
+            Assert.Equal("  A\n B B\nC   C\n B B\n  A\n", Diamond.Create(letter));
         }
     }
 }

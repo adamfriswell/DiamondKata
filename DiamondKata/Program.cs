@@ -8,7 +8,7 @@ public class Program
         while (!exit)
         {
             Console.Write("Enter a letter (SPACE to exit): ");
-            var input = Console.ReadLine().ToUpper()[0];
+            var input = Console.ReadLine()[0];
             if(input == ' ')
             {
                 exit = true;

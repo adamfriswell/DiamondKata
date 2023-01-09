@@ -8,6 +8,7 @@
 
         public static string Create(char input)
         {
+            input = char.ToUpper(input);
             var alphabet = Letters();
             var inputIndex = alphabet.IndexOf(input) + 1;
 
