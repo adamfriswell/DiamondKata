@@ -6,36 +6,41 @@
                      'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
                      'U', 'V', 'W', 'X', 'Y', 'Z' };
 
-        public static string Create(char input)
+        public static string Create(string input)
         {
-            input = char.ToUpper(input);
             var alphabet = Letters();
 
-            if (!alphabet.Contains(input))
+            if (input.Length > 1)
             {
                 throw new Exception("Invalid input");
             }
 
-            var inputIndex = alphabet.IndexOf(input) + 1;
+            var letter = input.ToUpper()[0];
+            if (!alphabet.Contains(letter))
+            {
+                throw new Exception("Invalid input");
+            }
 
-            var subset = alphabet.Take(inputIndex).ToList();
-            string topOfDiamond = CreateTriangleFromSubset(alphabet, subset, inputIndex, 1);
+            var alphabetIndex = alphabet.IndexOf(letter) + 1;
 
-            var subsetWithoutInput = alphabet.Take(inputIndex - 1).ToList();
+            var subset = alphabet.Take(alphabetIndex).ToList();
+            string topOfDiamond = CreateTriangleFromSubset(alphabet, subset, alphabetIndex, 1);
+
+            var subsetWithoutInput = alphabet.Take(alphabetIndex - 1).ToList();
             subsetWithoutInput.Reverse();
-            string bottomOfDiamond = CreateTriangleFromSubset(alphabet, subsetWithoutInput, inputIndex, 0);
+            string bottomOfDiamond = CreateTriangleFromSubset(alphabet, subsetWithoutInput, alphabetIndex, 0);
 
             return topOfDiamond + bottomOfDiamond;
         }
 
-        private static string CreateTriangleFromSubset(List<char> alphabet, List<char> subset, int inputIndex, int offset)
+        private static string CreateTriangleFromSubset(List<char> alphabet, List<char> subset, int alphabetIndex, int offset)
         {
             var result = "";
             foreach (var letter in subset)
             {
                 if (letter == 'A')
                 {
-                    result = WriteLine(result, letter, inputIndex-1);
+                    result = WriteLine(result, letter, alphabetIndex-1);
 
                 }
                 else

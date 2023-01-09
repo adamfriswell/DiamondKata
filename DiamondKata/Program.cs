@@ -8,11 +8,10 @@
             while (!exit)
             {
                 Console.Write("Enter a letter (SPACE to exit): ");
-                var response = Console.ReadLine();
-                if (response != null)
+                var input = Console.ReadLine();
+                if (input != null)
                 {
-                    var input = response[0];
-                    if (input == ' ')
+                    if (input == " ")
                     {
                         exit = true;
                     }
